@@ -1,41 +1,42 @@
-let operadores = ["adição", "subtração", "multiplicação", "divisão"];
-let numA = 2.0;
-let numB = 3.14;
-let numC; //undefined
+let num_A = 2.47;
+let num_B = 3.14;
+let num_C;
 
-function imprimirOperacao(operacao, operando1, operando2, resultado){
+const operacoes = ["adição", "subtração", "multiplicação", "divisão"];
+
+function imprimirResultado(operando1, operando2, resultado, operacao){
     console.log(`Resultado da ${operacao} entre ${operando1} e ${operando2} é ${resultado}`);
 }
 
-numC = numA + numB;
-//imprimirOperacao(operadores[0], numA, numB, numC);
-
-const vetor = [true, 0.15, "Texto", 1];
-//console.log(vetor);
-
-vetor[3] = 3.14;
-//console.log(vetor);
+num_C = num_A + num_B;
+//imprimirResultado(num_A, num_B, num_C, operacoes[0]);
+num_C = num_A - num_B;
+//imprimirResultado(num_A, num_B, num_C, operacoes[1]);
+num_C = num_A * num_B;
+//imprimirResultado(num_A, num_B, num_C, operacoes[2]);
+num_C = num_A / num_B;
+//imprimirResultado(num_A, num_B, num_C, operacoes[3]);
 
 /*
     1 2 3
     4 5 6
     7 8 9
- */
+*/
 
-let matriz = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
+let matriz = [ 
+    [1, 2, 3, 11], 
+    [4, 5, 6, 1111],
+    [111, 7, 8, 9],
+    [true, false, null, undefined], 
 ];
-//console.log(matriz);
 
 function imprimirMatriz(A){
     for(let i = 0; i < A.length; i++){
-        let linha = ""
-        for(let j = 0; j < A[0].length; j++){
-            linha += A[i][j] + "\t";
+        let linhaMatriz = "";
+        for(let j = 0; j < A[i].length; j++){
+            linhaMatriz += A[i][j] + "\t";
         }
-        console.log(linha);
+        console.log(linhaMatriz);
     }
 }
 
@@ -51,7 +52,9 @@ let capitais = {
     DDD_RJ: 21
 };
 
-//console.log(capitais.DF + " - " + capitais.DDD_DF);
+for (const key in capitais) {
+    //console.log(key + "-" + capitais[key]);    
+}
 
 function verificarNumeroPar(n){
     if(n % 2 == 0){
@@ -60,20 +63,5 @@ function verificarNumeroPar(n){
     return false;
 }
 
-let calculadora = {
-    somar: (a, b)=>{
-        return a + b;
-    },
-    subtrair: (a, b)=>{
-        return a - b;
-    },
-    multiplicar: (a, b)=>{
-        return a * b;
-    },
-    dividir: (a, b)=>{
-        return a / b;
-    },
-    verificarNumeroPar: verificarNumeroPar
-}
-
-console.log( calculadora.verificarNumeroPar(calculadora.somar(1, 2)));
+console.log(verificarNumeroPar(3));
+console.log(verificarNumeroPar(6));
