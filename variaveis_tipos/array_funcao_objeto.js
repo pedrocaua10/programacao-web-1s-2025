@@ -1,47 +1,46 @@
-let num_A = 2.47;
-let num_B = 3.14;
+let num_A = 2;
+let num_B = 3.0;
 let num_C;
 
 const operacoes = ["adição", "subtração", "multiplicação", "divisão"];
 
-function imprimirResultado(operando1, operando2, resultado, operacao){
-    console.log(`Resultado da ${operacao} entre ${operando1} e ${operando2} é ${resultado}`);
+function imprimirResultado(operando1, operando2, operacao, resultado){
+    console.log(`A ${operacao} entre ${operando1} e ${operando2} é igual a ${resultado}`);
 }
 
 num_C = num_A + num_B;
-//imprimirResultado(num_A, num_B, num_C, operacoes[0]);
+//imprimirResultado(num_A, num_B, operacoes[0], num_C);
+
 num_C = num_A - num_B;
-//imprimirResultado(num_A, num_B, num_C, operacoes[1]);
+//imprimirResultado(num_A, num_B, operacoes[1], num_C);
+
 num_C = num_A * num_B;
-//imprimirResultado(num_A, num_B, num_C, operacoes[2]);
+//imprimirResultado(num_A, num_B, operacoes[2], num_C);
+
 num_C = num_A / num_B;
-//imprimirResultado(num_A, num_B, num_C, operacoes[3]);
+//imprimirResultado(num_A, num_B, operacoes[3], num_C);
 
 /*
     1 2 3
     4 5 6
     7 8 9
 */
-
-let matriz = [ 
-    [1, 2, 3, 11], 
-    [4, 5, 6, 1111],
-    [111, 7, 8, 9],
-    [true, false, null, undefined], 
+let matriz = [
+    [1, 2, 3], 
+    [4, 5, 6], 
+    [7, 8, 9]
 ];
-
 function imprimirMatriz(A){
     for(let i = 0; i < A.length; i++){
-        let linhaMatriz = "";
+        let linha = "";
         for(let j = 0; j < A[i].length; j++){
-            linhaMatriz += A[i][j] + "\t";
+            linha += A[i][j] + "\t";
         }
-        console.log(linhaMatriz);
+        console.log(linha);
     }
 }
 
 //imprimirMatriz(matriz);
-
 
 let capitais = {
     DF: "Brasília",
@@ -52,16 +51,23 @@ let capitais = {
     DDD_RJ: 21
 };
 
-for (const key in capitais) {
-    //console.log(key + "-" + capitais[key]);    
+//console.log(capitais.RJ + " - " + capitais.DDD_RJ);
+
+for(chave in capitais){
+    //console.log(chave + "="+ capitais[chave]);
 }
 
-function verificarNumeroPar(n){
+function verificarParidade(n){
     if(n % 2 == 0){
         return true;
     }
     return false;
 }
-
-console.log(verificarNumeroPar(3));
-console.log(verificarNumeroPar(6));
+let n = 2;
+console.log(`verificarParidade(${n})=${verificarParidade(n)}`);
+n = 3;
+console.log(`verificarParidade(${n})=${verificarParidade(n)}`);
+n = 7;
+console.log(`verificarParidade(${n})=${verificarParidade(n)}`);
+n = 10;
+console.log(`verificarParidade(${n})=${verificarParidade(n)}`);
