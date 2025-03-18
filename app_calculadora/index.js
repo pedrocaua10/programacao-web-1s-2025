@@ -7,7 +7,7 @@ app.get('/', (req, res)=>{
     res.send('Olá, mundo!');
 });
 
-app.get('/somar/:nome', (req, res)=>{
+app.get('/ola/:nome', (req, res)=>{
     res.send(`Olá, ${req.params.nome}!`);
 });
 
