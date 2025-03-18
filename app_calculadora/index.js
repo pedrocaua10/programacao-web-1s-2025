@@ -1,5 +1,5 @@
-const express = require('express');
 const calc = require('./calculadora');
+const express = require('express');
 
 const app = express();
 
@@ -7,7 +7,7 @@ app.get('/', (req, res)=>{
     res.send('Olá, mundo!');
 });
 
-app.get('/somar/5/3', (req, res)=>{
+app.get('/somar/:nome', (req, res)=>{
     res.send(`Olá, ${req.params.nome}!`);
 });
 
