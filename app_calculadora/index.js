@@ -1,44 +1,43 @@
-// Para navegar até a pasta da aplicação: cd app_calculadora
-// Para criar o app npm: npm init
-// Instalar o express: npm install express@4.18.2
-const calc = require('./calculadora');
 const express = require('express');
+const calc = require('./calculadora');
 const app = express();
 
 app.get('/', (req, res)=>{
     let html = '<h1>app_calculadora</h1>';
-    html += '<h3>Rotas da aplicação:</h3>';
-    html += '<p>/somar/:a/:b</p>';
-    html += '<p>/subtrair/:a/:b</p>';
-    html += '<p>/multiplicar/:a/:b</p>';
-    html += '<p>/dividir/:a/:b</p>';
+    html += '<h3>Rotas disponíveis</h3>';
+    html += '<p>/somar/:a/:b (<a href="/somar/2/3">somar/2/3</a>)</p>';
+    html += '<p>/subtrair/:a/:b (<a href="/subtrair/2/3">subtrair/2/3</a>)</p>';
+    html += '<p>/multiplicar/:a/:b (<a href="/multiplicar/2/3">multiplicar/2/3</a>)</p>';
+    html += '<p>/dividir/:a/:b (<a href="/dividir/2/3">dividir/2/3</a>)</p>';
     res.send(html);
 });
 
-// Declara a rota /somar/:a/:b
-// E especifica o seu comportamento
 app.get('/somar/:a/:b', (req, res)=>{
-    let a = Number(req.params.a);
     let b = Number(req.params.b);
-    res.send(`${a} + ${b} = ${calc.somar(a, b)}`);
+    let a = Number(req.params.a);
+    let resultado = calc.somar(a, b);
+    res.send(`${a} + ${b} = ${resultado}`);
 });
 
 app.get('/subtrair/:a/:b', (req, res)=>{
-    let a = Number(req.params.a);
     let b = Number(req.params.b);
-    res.send(`${a} - ${b} = ${calc.subtrair(a, b)}`);
+    let a = Number(req.params.a);
+    let resultado = calc.subtrair(a, b);
+    res.send(`${a} - ${b} = ${resultado}`);
 });
 
 app.get('/multiplicar/:a/:b', (req, res)=>{
-    let a = Number(req.params.a);
     let b = Number(req.params.b);
-    res.send(`${a} * ${b} = ${calc.multiplicar(a, b)}`);
+    let a = Number(req.params.a);
+    let resultado = calc.multiplicar(a, b);
+    res.send(`${a} * ${b} = ${resultado}`);
 });
 
 app.get('/dividir/:a/:b', (req, res)=>{
-    let a = Number(req.params.a);
     let b = Number(req.params.b);
-    res.send(`${a} / ${b} = ${calc.dividir(a, b)}`);
+    let a = Number(req.params.a);
+    let resultado = calc.dividir(a, b);
+    res.send(`${a} / ${b} = ${resultado}`);
 });
 
 const PORT = 8080;
