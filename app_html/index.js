@@ -6,6 +6,7 @@ app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
+
 app.get('/ola/:nome', (req, res)=>{
     let nome = req.params.nome;
     res.render('index.html', {nome});
@@ -13,5 +14,5 @@ app.get('/ola/:nome', (req, res)=>{
 
 const PORT = 8080;
 app.listen(PORT, ()=>{
-    console.log('app rodando na porta ' + PORT);
+    console.log("app rodando na porta " + PORT);
 });
